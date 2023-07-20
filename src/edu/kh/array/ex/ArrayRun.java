@@ -9,7 +9,16 @@ public class ArrayRun {
 		//arrayEx1.ex3();
 		//arrayEx1.ex4();
 		//arrayEx1.ex5();
-		arrayEx1.ex6();
+		//arrayEx1.ex6();
+		//arrayEx1.ex7();
+		//arrayEx1.ex8();
+		//arrayEx1.ex9();
+		ArrayExample2 arrayEx2 = new ArrayExample2();
+		//arrayEx2.shallowCopy();
+		//arrayEx2.shallowCopy1();
+		//arrayEx2.deepCopy();
+		arrayEx2.createLottoNumber();
+		
 	}
 
 }

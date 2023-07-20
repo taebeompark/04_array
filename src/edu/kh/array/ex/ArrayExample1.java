@@ -174,10 +174,10 @@ public class ArrayExample1 {
 		//arr[i]값이 max보다 크면 max대입
 		//arr[i]값이 min보다 작으면 min대입
 		for(int i=0;i<arr.length; i++) {
-			if(arr[i]>max) {//최고점비교
+			if(arr[i]>max) {//최고점비교 
 				max =arr[i];
 			}
-			if(arr[i]<min) { //최저점비교
+			if(arr[i]<min) { //최저점비교 
 				min =arr[i];
 			}
 			
@@ -199,7 +199,7 @@ public class ArrayExample1 {
 		for(int i=0;i< arr.length;i++) {
 			arr[i]=(char)('A'+i);
 			//A==65
-			//B=66
+			//B==66
 			//C==67
 		}
 		//Arrays 클래스
@@ -216,7 +216,113 @@ public class ArrayExample1 {
 	}
 	
 	public void ex6() {
+		//점심메뉴 뽑기 프로그램
+		String[] arr = {"김밥","버거","백반","국밥","나물", "밥"};
+		
+		System.out.println("오늘 점심 메뉴:"+arr[(int)(Math.random()*6)]);
+		//0.0 <=x <1.0						//-> 0 1 2 3 4 5
+		//0.0 <=x*6 <6.0
+		//0<(int)(x*6)<6
 		
 	}
-	
+	public void ex7() {
+		//배열을 이용한 검색
+		//입력받은 정수가 배열에 잇는지 없는지 확인
+		//만약 잇다면 몇번 인덱스에 존재하는지 확인
+		
+		int[] arr = {100, 200, 300, 400, 500, 600, 700, 800, 900, 1000};
+		System.out.print("정수 입력: ");
+		int input=sc.nextInt();
+		
+		//신호를 나타내기 위한 변수
+		//flag == false : 일치하는 값이 존재않음
+		//flag == true : 일치하는 값이 존재
+		
+		boolean flag =false;//검사 전에는 없다고 가정
+		//arr 배열 요소 순차접근(반복접근)
+		for(int i=0;i < arr.length; i++) {
+			if(arr[i]==input) {
+				System.out.println(i+"번째 인덱스에 존재");
+				
+				flag = true;//일치하는 값이 있으므로 true변경
+			}
+		}
+		//flag 상태를 검사
+		if(!flag) {//flag==false
+			System.out.println("존재하지않음");
+		}
+	}
+	public void ex8() {
+		//입력 받은 값과 일치 값이 있으면 인덱스 번호 출력
+		//없으면"존재하지 않음"
+		
+		String[] arr= {"사과", "딸기", "바나나", "키위", "멜론", "아보카도"};
+		System.out.print("과일입력:");
+		String input = sc.next();
+		
+		boolean flag =false;
+		for(int i=0;i < arr.length; i++) {
+			if(arr[i].equals(input)) {//string비교시 equals()사용
+				System.out.println(i+"번째 인덱스에 존재");
+				
+				flag = true;//일치하는 값이 있으므로 true변경
+			}
+		}
+		
+		if(!flag) {
+			System.out.println("존재하지않음");
+		}
+	}
+	public void ex9() {
+		//1.문자열을 입력받아 한글자씩 잘라내어 char 배열에 순서대로 저장
+		//2.문자 하나를 입력받아 일치하는 문자가 char배열에 몇개 존재하는지 확인
+		//3. 단, 일치하는 문자가 없을경우 "존재하지 않습니다"출력
+		
+		//[사용 해야되는 기술,기능]
+		//1)배열검색
+		//2)String.length() : 문자열의 길이
+		//ex) "Hello".length ->5
+		
+		//3) String.chaAt(index): 문자열에서 특정 index에 위치한 문자 하나를 얻어옴
+		//ex) "Hello".charAt(1) -> 'e'
+		//	   01234
+		//4)count(숫자 세기)
+		
+		System.out.print("문자열 입력:");
+		String input = sc.nextLine(); //한줄(띄어쓰기포함) 입력받기
+		//1.문자열을 입력받아 한글자씩 잘라내어 char 배열에 순서대로 저장
+		char[] arr = new char[input.length()];
+		for(int i=0 ; i<arr.length; i++) {
+		
+			arr[i] =input.charAt(i);
+			//arr[i]에 입력받은 문자열 중 i 번째 문자를 대입
+			
+		}
+		System.out.println(Arrays.toString(arr));
+		
+		//2.문자 하나를 입력받아 일치하는 문자가 char배열에 몇개 존재하는지 확인
+		System.out.println("검색할 문자 입력:");
+		char ch = sc.next().charAt(0);
+		
+		int count = 0;//같은글자 개수를 세기위한변수
+		for(int i=0; i< arr.length;i++) {
+			if(arr[i]==ch){
+				//arr[i]값과 검색할 문자가 ch가같은경우
+				//=>카운트
+				count++;
+			}
+		}
+		
+		//결과 출력
+		
+		if(count>0) {
+			System.out.println(count+"개 있음");
+			
+		}else {
+			
+			//3. 단, 일치하는 문자가 없을경우 "존재하지 않습니다"출력
+			System.out.println("존재하지 않음");
+		}
+		
+	}
 }
