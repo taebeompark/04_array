@@ -25,13 +25,12 @@ public class ArrayExample2 {
 			System.out.println("copyArr"+ Arrays.toString(copyArr));
 			
 		}
-		public void shallowCopy1() {
+		
+		
+		public void deepCopy() {
 			//깊은복사
 			//같은 자료형의 새로운 배열을 만들어서
 			//기존 배열의 데이터를 모두 복사하는법
-			
-		}
-		public void deepCopy() {
 			int[] arr= {1,2,3,4,5};//원본
 			
 			
